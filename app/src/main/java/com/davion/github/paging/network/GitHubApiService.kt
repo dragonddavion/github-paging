@@ -8,6 +8,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import retrofit2.http.QueryMap
 import java.util.HashMap
 
@@ -16,7 +17,8 @@ private const val BASE_URL = "https://api.github.com"
 interface GitHubApiService {
     @GET("/users")
     fun getUsersAsync(
-        @QueryMap requestParams: HashMap<String, String>
+        @Query("since") since: Int,
+        @Query("per_page") perPage: Int
     ): Deferred<Response<List<User>>>
 }
 

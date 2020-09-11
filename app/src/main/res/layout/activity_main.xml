@@ -18,7 +18,7 @@
             android:id="@+id/list_user"
             android:layout_width="380dp"
             android:layout_height="609dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,10 +29,10 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.getNextUser()}"
             android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:onClick="@{() -> viewModel.onClickButton()}"
+            app:layout_constraintBottom_toBottomOf="@+id/list_user"
+            app:layout_constraintEnd_toEndOf="@+id/list_user" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
