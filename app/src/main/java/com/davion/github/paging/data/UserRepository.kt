@@ -1,4 +1,4 @@
-package com.davion.github.paging
+package com.davion.github.paging.data
 
 import com.davion.github.paging.network.GitHubApi
 import com.davion.github.paging.network.User

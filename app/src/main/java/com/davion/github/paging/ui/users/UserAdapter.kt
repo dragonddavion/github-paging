@@ -1,4 +1,4 @@
-package com.davion.github.paging
+package com.davion.github.paging.ui.users
 
 
 import android.view.LayoutInflater
@@ -25,7 +25,7 @@ class UserViewHolder(private val binding: ItemUserBinding): RecyclerView.ViewHol
     }
 
     companion object {
-        fun from(parent: ViewGroup) : UserViewHolder{
+        fun from(parent: ViewGroup) : UserViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val binding = ItemUserBinding.inflate(inflater)
             return UserViewHolder(binding)

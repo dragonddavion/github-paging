@@ -1,10 +1,11 @@
-package com.davion.github.paging
+package com.davion.github.paging.ui.users
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.davion.github.paging.data.UserRepository
 import com.davion.github.paging.network.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
