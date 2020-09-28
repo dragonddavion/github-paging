@@ -27,7 +27,6 @@ class UserViewModel(): ViewModel() {
     private var gettingData = false
 
     fun getNextUserPage(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
-        Log.d("Davion", "getNextUser Button clicked $gettingData")
         if (gettingData) {
             return
         }

@@ -20,6 +20,12 @@ interface GitHubApiService {
         @Query("since") since: Int,
         @Query("per_page") perPage: Int
     ): Deferred<Response<List<User>>>
+
+    @GET(value = "/search/repositories?q=Android")
+    fun getAndroidReposAsync(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): Deferred<Response<SearchReposResponse>>
 }
 
 private val moshi: Moshi = Moshi.Builder()
