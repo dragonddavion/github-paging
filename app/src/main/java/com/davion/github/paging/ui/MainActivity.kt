@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        toolbar_basic.title = "Users"
+        toolbar_basic.title = "Github Api"
         setSupportActionBar(toolbar_basic)
         supportActionBar?.let {
             it.setHomeButtonEnabled(true)

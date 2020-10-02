@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davion.github.paging.R
@@ -43,6 +44,9 @@ class UsersFragment : Fragment() {
             //Log.d("Davion", "users: $it")
             adapter.submitList(ArrayList(it))
         })
+
+        val decoration = DividerItemDecoration(this.requireContext(), DividerItemDecoration.VERTICAL)
+        binding.listUser.addItemDecoration(decoration)
     }
 
     private fun setScrollListener() {

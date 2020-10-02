@@ -24,15 +24,5 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="16"
             tools:listitem="@layout/item_user" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click check"
-            android:onClick="@{() -> viewModel.onClickButton()}"
-            app:layout_constraintBottom_toBottomOf="@+id/list_user"
-            app:layout_constraintEnd_toEndOf="@+id/list_user" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

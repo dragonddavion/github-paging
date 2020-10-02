@@ -1,5 +1,6 @@
 package com.davion.github.paging.data
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -20,7 +21,11 @@ fun bindAvatar(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("bindId")
-fun bindId(textView: TextView, id: Int) {
-    textView.text = id.toString()
+@BindingAdapter("setVisible")
+fun setVisible(view: View, visible: Boolean) {
+    if (visible) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.GONE
+    }
 }
