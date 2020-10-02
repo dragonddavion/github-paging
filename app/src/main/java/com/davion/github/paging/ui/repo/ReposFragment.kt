@@ -50,16 +50,13 @@ class ReposFragment : Fragment() {
 
     private fun initRecyclerView() {
         binding.repositoryList.adapter = adapter
-        binding.repositoryList.layoutManager = LinearLayoutManager(requireContext())
         lifecycleScope.launch {
             adapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect { binding.repositoryList.scrollToPosition(0)}
         }
-
         val decoration = DividerItemDecoration(this.requireContext(), DividerItemDecoration.VERTICAL)
         binding.repositoryList.addItemDecoration(decoration)
-
     }
 }

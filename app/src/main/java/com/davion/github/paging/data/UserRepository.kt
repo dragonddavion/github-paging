@@ -11,7 +11,7 @@ import com.davion.github.paging.network.User
 import com.davion.github.paging.ui.repo.RepoPagingSource
 import kotlinx.coroutines.flow.Flow
 
-private const val NETWORK_PAGE_SIZE = 30
+private const val NETWORK_PAGE_SIZE = 50
 
 class UserRepository {
 
@@ -24,7 +24,7 @@ class UserRepository {
         return if (response.isSuccessful) {
             Log.d("Davion1", "since: $since, size: $NETWORK_PAGE_SIZE")
             if (response.body() != null) {
-                since = response.body()!![29].id.toInt()
+                since = response.body()!![NETWORK_PAGE_SIZE - 1].id
                 response.body()!!
             } else {
                 listOf()

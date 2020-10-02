@@ -3,9 +3,11 @@ package com.davion.github.paging.ui.users
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.davion.github.paging.R
 import com.davion.github.paging.databinding.ItemUserBinding
 import com.davion.github.paging.network.User
 
@@ -27,7 +29,7 @@ class UserViewHolder(private val binding: ItemUserBinding): RecyclerView.ViewHol
     companion object {
         fun from(parent: ViewGroup) : UserViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            val binding = ItemUserBinding.inflate(inflater)
+            val binding: ItemUserBinding = DataBindingUtil.inflate(inflater, R.layout.item_user, parent, false)
             return UserViewHolder(binding)
         }
     }

@@ -2,9 +2,11 @@ package com.davion.github.paging.ui.repo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.davion.github.paging.R
 import com.davion.github.paging.databinding.ItemRepoBinding
 import com.davion.github.paging.network.Repo
 
@@ -30,7 +32,7 @@ class RepoViewHolder(private val binding: ItemRepoBinding) : RecyclerView.ViewHo
     companion object {
         fun from(parent: ViewGroup) : RepoViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            val binding = ItemRepoBinding.inflate(inflater)
+            val binding = DataBindingUtil.inflate<ItemRepoBinding>(inflater, R.layout.item_repo, parent, false)
             return RepoViewHolder(binding)
         }
     }

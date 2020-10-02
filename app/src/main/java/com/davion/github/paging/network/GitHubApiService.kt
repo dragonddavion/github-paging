@@ -21,7 +21,7 @@ interface GitHubApiService {
         @Query("per_page") perPage: Int
     ): Deferred<Response<List<User>>>
 
-    @GET(value = "/search/repositories?q=Android")
+    @GET(value = "/search/repositories?sort=stars&q=Androidin:name,description")
     fun getAndroidReposAsync(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
