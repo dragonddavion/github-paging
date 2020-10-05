@@ -4,4 +4,5 @@
     <string name="avatar">avatar</string>
     <string name="staff">STAFF</string>
     <string name="language">Language: %s</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.davion.github.paging.R
 import com.davion.github.paging.databinding.FragmentReposBinding
 import kotlinx.coroutines.Job
@@ -38,6 +37,12 @@ class ReposFragment : Fragment() {
 
         initRecyclerView()
 
+        initData()
+
+        return binding.root
+    }
+
+    private fun initData() {
         repoJob?.cancel()
         repoJob = lifecycleScope.launch {
             viewModel.getRepositories().collectLatest {
@@ -45,18 +50,38 @@ class ReposFragment : Fragment() {
             }
         }
 
-        return binding.root
+        lifecycleScope.launch {
+            adapter.loadStateFlow
+                .distinctUntilChangedBy {
+                    it.refresh
+                }.filter {
+                    it.refresh is LoadState.NotLoading
+                }.collect {
+                    binding.repositoryList.scrollToPosition(0)
+                }
+        }
     }
 
     private fun initRecyclerView() {
-        binding.repositoryList.adapter = adapter
+        binding.repositoryList.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = ReposLoadStateAdapter { adapter.retry() },
+            footer = ReposLoadStateAdapter { adapter.retry() }
+        )
         lifecycleScope.launch {
             adapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
                 .filter { it.refresh is LoadState.NotLoading }
-                .collect { binding.repositoryList.scrollToPosition(0)}
+                .collect { binding.repositoryList.scrollToPosition(0) }
         }
-        val decoration = DividerItemDecoration(this.requireContext(), DividerItemDecoration.VERTICAL)
+        val decoration =
+            DividerItemDecoration(this.requireContext(), DividerItemDecoration.VERTICAL)
         binding.repositoryList.addItemDecoration(decoration)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        repoJob?.cancel()
+    }
 }
+
+

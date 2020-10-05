@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_full_name"
             app:layout_constraintStart_toStartOf="@+id/tv_full_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_full_name"
-            tools:text="mojombo" />
+            tools:text="This is description of this repository..." />
 
         <TextView
             android:id="@+id/tv_id"
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_login"
             app:layout_constraintStart_toStartOf="@+id/tv_login"
             app:layout_constraintTop_toBottomOf="@+id/tv_login"
-            tools:text="21" />
+            tools:text="Language: C++" />
 
         <ImageView
             android:id="@+id/im_star"
