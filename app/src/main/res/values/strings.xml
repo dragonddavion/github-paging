@@ -3,4 +3,5 @@
     <string name="star_count">Star count</string>
     <string name="avatar">avatar</string>
     <string name="staff">STAFF</string>
+    <string name="language">Language: %s</string>
 </resources>

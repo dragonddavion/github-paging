@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="repo"
             type="com.davion.github.paging.network.Repo" />
@@ -12,18 +13,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#A6D6A8">
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/tv_full_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@{repo.fullName}"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="19sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/im_star"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="mojombo/grit" />
@@ -33,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{repo.owner.login}"
+            android:text="@{repo.description}"
             app:layout_constraintEnd_toEndOf="@+id/tv_full_name"
             app:layout_constraintStart_toStartOf="@+id/tv_full_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_full_name"
@@ -44,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{repo.language}"
+            android:text="@{@string/language(repo.language)}"
             app:layout_constraintEnd_toEndOf="@+id/tv_login"
             app:layout_constraintStart_toStartOf="@+id/tv_login"
             app:layout_constraintTop_toBottomOf="@+id/tv_login"
@@ -54,23 +58,25 @@
             android:id="@+id/im_star"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="8dp"
             android:contentDescription="@string/star_count"
             app:layout_constraintBottom_toBottomOf="@+id/tv_full_name"
-            app:layout_constraintEnd_toStartOf="@+id/tv_star"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_full_name"
-            app:srcCompat="@drawable/ic_brocoli" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_star_border" />
 
         <TextView
             android:id="@+id/tv_star"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
             android:text="@{repo.stars}"
             app:layout_constraintBottom_toBottomOf="@+id/im_star"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/im_star"
             app:layout_constraintTop_toTopOf="@+id/im_star"
+            app:layout_constraintVertical_bias="1.0"
             tools:text="56000" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
