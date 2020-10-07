@@ -54,8 +54,4 @@ class UserViewModel(): ViewModel() {
             _users.value = allUser
         }
     }
-
-    fun onClickButton() {
-        Log.d("Davion", "onClick Button")
-    }
 }

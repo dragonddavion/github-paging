@@ -29,3 +29,8 @@ fun setVisible(view: View, visible: Boolean) {
         view.visibility = View.GONE
     }
 }
+
+@BindingAdapter("setStringFromInt")
+fun setString(textView: TextView, number: Int) {
+    textView.text = number.toString()
+}

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -60,6 +62,10 @@ class ReposFragment : Fragment() {
                     binding.repositoryList.scrollToPosition(0)
                 }
         }
+
+        binding.retryButton.setOnClickListener {
+            adapter.retry()
+        }
     }
 
     private fun initRecyclerView() {
@@ -67,6 +73,21 @@ class ReposFragment : Fragment() {
             header = ReposLoadStateAdapter { adapter.retry() },
             footer = ReposLoadStateAdapter { adapter.retry() }
         )
+
+        adapter.addLoadStateListener { loadState ->
+            binding.repositoryList.isVisible = loadState.source.refresh is LoadState.NotLoading
+            binding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+            binding.retryButton.isVisible = loadState.source.refresh is LoadState.Error
+
+            val errorState = loadState.source.append as? LoadState.Error
+                ?: loadState.source.prepend as? LoadState.Error
+                ?: loadState.append as? LoadState.Error
+                ?: loadState.prepend as? LoadState.Error
+            errorState?.let {
+                Toast.makeText(requireContext(), "\uD83D\uDE28 Wooops ${it.error}", Toast.LENGTH_LONG).show()
+            }
+        }
+
         lifecycleScope.launch {
             adapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }

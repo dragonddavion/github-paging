@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="2dp"
-            android:text="@{repo.stars}"
+            setStringFromInt="@{repo.stars}"
             app:layout_constraintBottom_toBottomOf="@+id/im_star"
             app:layout_constraintStart_toEndOf="@+id/im_star"
             app:layout_constraintTop_toTopOf="@+id/im_star"

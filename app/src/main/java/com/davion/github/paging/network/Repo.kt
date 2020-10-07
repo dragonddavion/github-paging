@@ -8,7 +8,7 @@ data class Repo (
     @Json(name = "full_name")
     val fullName: String,
     @Json(name = "stargazers_count")
-    val stars: String,
+    val stars: Int,
     val description: String?,
     val fork: Boolean,
     val language: String?,
