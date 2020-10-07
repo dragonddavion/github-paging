@@ -4,16 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.davion.github.paging.R
 import com.davion.github.paging.databinding.ItemRepoBinding
-import com.davion.github.paging.databinding.ReposLoadStateFooterViewItemBinding
-import com.davion.github.paging.network.Repo
+import com.davion.github.paging.model.Repo
+import com.davion.github.paging.model.UIModel
 import java.lang.UnsupportedOperationException
 
 class ReposAdapter : PagingDataAdapter<UIModel, RecyclerView.ViewHolder>(RepoDiffUtil()) {

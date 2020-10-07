@@ -1,4 +1,4 @@
-package com.davion.github.paging.network
+package com.davion.github.paging.model
 
 import com.squareup.moshi.Json
 

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.davion.github.paging.R
 import com.davion.github.paging.databinding.ItemUserBinding
-import com.davion.github.paging.network.User
+import com.davion.github.paging.model.User
 
 class UserAdapter (): ListAdapter<User, UserViewHolder>(UserDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {

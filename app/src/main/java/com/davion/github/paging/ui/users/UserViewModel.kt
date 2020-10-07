@@ -1,22 +1,21 @@
 package com.davion.github.paging.ui.users
 
 import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.davion.github.paging.data.UserRepository
-import com.davion.github.paging.network.User
+import com.davion.github.paging.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UserViewModel(): ViewModel() {
+class UserViewModel @ViewModelInject constructor(private val repository: UserRepository): ViewModel() {
     companion object {
         private const val VISIBLE_THRESHOLD = 5
     }
-
-    private val repository: UserRepository = UserRepository()
 
     private val allUser = mutableListOf<User>()
 
@@ -32,16 +31,16 @@ class UserViewModel(): ViewModel() {
         }
         if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount) {
             gettingData = true
-            val stime = System.currentTimeMillis()
+            val startTime = System.currentTimeMillis()
             viewModelScope.launch {
-                Log.d("Davion before ${System.currentTimeMillis() - stime}", Thread.currentThread().name)
+                Log.d("Davion before ${System.currentTimeMillis() - startTime}", Thread.currentThread().name)
                 withContext(Dispatchers.IO) {
                     val nextUsers = repository.getUsers()
                     allUser.addAll(nextUsers)
                     _users.postValue(allUser)
                     gettingData = false
                 }
-                Log.d("Davion after ${System.currentTimeMillis() - stime}", Thread.currentThread().name)
+                Log.d("Davion after ${System.currentTimeMillis() - startTime}", Thread.currentThread().name)
             }
         }
     }

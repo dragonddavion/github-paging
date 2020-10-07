@@ -1,6 +1,5 @@
 package com.davion.github.paging.ui.users
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davion.github.paging.R
 import com.davion.github.paging.databinding.FragmentUsersBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class UsersFragment : Fragment() {
     private val viewModel: UserViewModel by viewModels()
     private lateinit var binding: FragmentUsersBinding

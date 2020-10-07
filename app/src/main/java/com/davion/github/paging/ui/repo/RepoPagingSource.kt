@@ -1,12 +1,12 @@
 package com.davion.github.paging.ui.repo
 
 import androidx.paging.PagingSource
-import com.davion.github.paging.network.GitHubApiService
-import com.davion.github.paging.network.Repo
+import com.davion.github.paging.network.GithubApiService
+import com.davion.github.paging.model.Repo
 import retrofit2.HttpException
 import java.io.IOException
 
-class RepoPagingSource(private val service: GitHubApiService) : PagingSource<Int, Repo>() {
+class RepoPagingSource(private val service: GithubApiService) : PagingSource<Int, Repo>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> {
         val position = params.key ?: 1
         return try {

@@ -1,5 +1,6 @@
 package com.davion.github.paging.ui.repo
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -7,11 +8,13 @@ import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import com.davion.github.paging.data.UserRepository
-import com.davion.github.paging.network.Repo
+import com.davion.github.paging.model.Repo
+import com.davion.github.paging.model.UIModel
+import com.davion.github.paging.model.roundedStarCount
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class RepoViewModel : ViewModel() {
+class RepoViewModel @ViewModelInject constructor(private val repository: UserRepository) : ViewModel() {
 
     private var currentSearchResult: Flow<PagingData<UIModel>>? = null
 
@@ -20,7 +23,7 @@ class RepoViewModel : ViewModel() {
         if (lastResult != null) {
             return lastResult
         }
-        val newResult: Flow<PagingData<UIModel>> = UserRepository().getRepos().map { pagingData : PagingData<Repo> ->
+        val newResult: Flow<PagingData<UIModel>> = repository.getRepos().map { pagingData : PagingData<Repo> ->
             pagingData.map {
                 UIModel.RepoItem(it)
             }

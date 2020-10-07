@@ -1,5 +1,6 @@
 package com.davion.github.paging.network
 
+import com.davion.github.paging.model.Repo
 import com.squareup.moshi.Json
 
 data class SearchReposResponse (

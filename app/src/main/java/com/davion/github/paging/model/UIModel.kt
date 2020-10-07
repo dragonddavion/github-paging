@@ -1,6 +1,4 @@
-package com.davion.github.paging.ui.repo
-
-import com.davion.github.paging.network.Repo
+package com.davion.github.paging.model
 
 sealed class UIModel {
     data class RepoItem(val repo: Repo) : UIModel()

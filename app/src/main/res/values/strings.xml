@@ -5,4 +5,6 @@
     <string name="staff">STAFF</string>
     <string name="language">Language: %s</string>
     <string name="retry">Retry</string>
+    <string name="users">Users</string>
+    <string name="repo">Repos</string>
 </resources>

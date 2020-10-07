@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.davion.github.paging.network.User" />
+            type="com.davion.github.paging.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

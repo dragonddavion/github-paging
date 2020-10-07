@@ -14,6 +14,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.davion.github.paging.R
 import com.davion.github.paging.databinding.FragmentReposBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -21,6 +22,7 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ReposFragment : Fragment() {
     private lateinit var binding: FragmentReposBinding
 

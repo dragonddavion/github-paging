@@ -38,5 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryLight"
+        app:itemIconTint="@drawable/sl_icon_menu"
+        app:itemTextColor="@drawable/sl_icon_menu"
         app:menu="@menu/menu_bottom_bar" />
 </LinearLayout>
