@@ -7,7 +7,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
-import com.davion.github.paging.data.UserRepository
+import com.davion.github.paging.UserRepository
 import com.davion.github.paging.model.Repo
 import com.davion.github.paging.model.UIModel
 import com.davion.github.paging.model.roundedStarCount

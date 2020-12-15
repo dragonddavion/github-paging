@@ -9,6 +9,7 @@ buildscript {
         pagingVersion = '3.0.0-alpha07'
         version_glide = "4.11.0"
         hilt_version = "2.28-alpha"
+        room_version = "2.2.5"
     }
     repositories {
         google()

@@ -1,4 +1,4 @@
-package com.davion.github.paging.data
+package com.davion.github.paging
 
 import android.util.Log
 import androidx.paging.Pager

@@ -1,8 +1,12 @@
 package com.davion.github.paging.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+@Entity(tableName = "repos")
 data class Repo (
+    @PrimaryKey
     val id: Int,
     val name: String,
     @Json(name = "full_name")

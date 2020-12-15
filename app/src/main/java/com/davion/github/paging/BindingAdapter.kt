@@ -1,4 +1,4 @@
-package com.davion.github.paging.data
+package com.davion.github.paging
 
 import android.view.View
 import android.widget.ImageView
@@ -7,7 +7,6 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.davion.github.paging.R
 
 @BindingAdapter("avatarUrl")
 fun bindAvatar(imgView: ImageView, imgUrl: String?) {
