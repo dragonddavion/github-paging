@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/usersFragment"
+        android:id="@+id/users"
         android:title="@string/users"
         android:icon="@drawable/ic_users"
         />
 
     <item
-        android:id="@+id/reposFragment"
+        android:id="@+id/repos"
         android:title="@string/repo"
         android:icon="@drawable/ic_repositories"
         />

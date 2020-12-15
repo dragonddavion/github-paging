@@ -2,17 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/naviation"
-    app:startDestination="@id/usersFragment">
+    android:id="@+id/repos"
+    app:startDestination="@id/reposFragment">
 
-    <fragment
-        android:id="@+id/usersFragment"
-        android:name="com.davion.github.paging.ui.users.UsersFragment"
-        android:label="Users Fragment"
-        tools:layout="@layout/fragment_users" />
     <fragment
         android:id="@+id/reposFragment"
         android:name="com.davion.github.paging.ui.repo.ReposFragment"
-        android:label="Repos Fragment"
+        android:label="ReposFragment"
         tools:layout="@layout/fragment_repos" />
 </navigation>
